@@ -137,19 +137,6 @@ module Chat{
 		private links:{url:string;name:string;}[][]=[
 			[
 				{
-					url:"http://shogitter.com/",
-					name:"将棋",
-				},
-				{
-					url:"http://81.la/shogiwiki/",
-					name:"wiki",
-				},
-				{
-					url:"http://81.la/cgi-bin/up/",
-					name:"up",
-				},
-			],[
-				{
 					url:"/list",
 					name:"list",
 				},

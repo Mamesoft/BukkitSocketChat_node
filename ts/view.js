@@ -81,21 +81,6 @@ var Chat;
             this.links = [
                 [
                     {
-                        url: "http://shogitter.com/",
-                        name: "将棋"
-                    }, 
-                    {
-                        url: "http://81.la/shogiwiki/",
-                        name: "wiki"
-                    }, 
-                    {
-                        url: "http://81.la/cgi-bin/up/",
-                        name: "up"
-                    }, 
-                    
-                ], 
-                [
-                    {
                         url: "/list",
                         name: "list"
                     }, 
