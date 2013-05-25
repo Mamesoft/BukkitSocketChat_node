@@ -1,0 +1,8 @@
+exports.DB_SERVER="127.0.0.1";
+exports.DB_PORT=27017;
+exports.DB_NAME="minecraftchat";
+exports.DB_USER="youruser";
+exports.DB_PASS="yourpass";
+exports.HTTP_PORT = 8080;
+exports.SOCKET_HOST_NAME = "";
+exports.SOCKET_PASS = "aaa"
