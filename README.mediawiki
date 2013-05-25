@@ -2,10 +2,10 @@
 このプラグインはWebSocketを使用したチャットであるSocketChatを利用してWebからチャットに参加できるようにするプラグインです
 
 ==構成ファイル==
-プラグイン
-https://github.com/Mamesoft/BukkitSocketChat_Java
-チャット
-https://github.com/Mamesoft/BukkitSocketChat_node
+;プラグイン
+:https://github.com/Mamesoft/BukkitSocketChat_Java
+;チャット
+:https://github.com/Mamesoft/BukkitSocketChat_node
 
 
 ==著作権情報==
@@ -13,13 +13,13 @@ https://github.com/Mamesoft/BukkitSocketChat_node
 Mamesoft(info@mamesoft.jp )
 
 ===使用ライブラリ===
-https://github.com/Gottox/socket.io-java-client
-https://github.com/TooTallNate/Java-WebSocket
-https://github.com/douglascrockford/JSON-java
+*https://github.com/Gottox/socket.io-java-client
+*https://github.com/TooTallNate/Java-WebSocket
+*https://github.com/douglascrockford/JSON-java
 
 ===SocketChat===
 このプラグインのチャット部分は下のシステムのフォークです
-https://github.com/uhyo/socketchat
+*https://github.com/uhyo/socketchat
 
 
 ==ライセンス==
