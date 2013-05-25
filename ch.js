@@ -35,7 +35,7 @@ for(var i in exports){
 		console.log("settings: "+i+" is not defined.");
 	}
 }
-
+var pass = settings.SOCKET_PASS
 
 var mongoserver = new mongodb.Server(settings.DB_SERVER,settings.DB_PORT,{});
 var db = new mongodb.Db(settings.DB_NAME,mongoserver,{});
@@ -123,7 +123,7 @@ db.open(function(err,_db){
 				var syslog={"name" : "■起動通知",
 					"time":new Date(),
 				"ip":"127.0.0.1",
-				"comment":"「サーバー」さんが起動",
+				"comment":"「チャットサーバー」さんが起動",
 				"syslog":true
 				};
 				makelog({"type":"system"},syslog);
@@ -173,6 +173,7 @@ filters.push(function(logobj,user){
 	}
 });*/
 //ｼｬﾍﾞｯﾀｰ
+/*
 filters.push(function(logobj){
 	var date=new Date(logobj.time);
 	var minutes=date.getMinutes();
@@ -225,6 +226,7 @@ filters.push(function(logobj){
 		});
 	}
 });
+*/
 function pushLogobj(to,logobj){
 	if(typeof to=="object"){
 		if(to instanceof Array){
@@ -451,14 +453,22 @@ User.prototype.says=function(data){
 	if(channel.length===0){
 		channel=null;
 	}
-
+	
+	if(data.pass == pass){
+		var logobj={"name":data.user,
+		    "comment":comment,
+		    "ip":data.ip,
+		    "time":new Date(),
+		    "channel":channel
+		};
+	}else{
 	var logobj={"name":this.name,
 		    "comment":comment,
 		    "ip":this.ip,
 		    "time":new Date()
 		    };
-
-	if(channel)logobj.channel=channel;	//チャネルを追加
+	}
+	
 	var say=makelog.bind(null,this,logobj);
 	if(data.response){
 		try{
@@ -480,6 +490,11 @@ User.prototype.says=function(data){
 };
 User.prototype.inout=function(data){
 	this.rom = !this.rom;
+	if(data.name == "ゲームサーバー"){
+		if(data.pass != pass){
+			return;
+		}
+	}
 	if(!this.rom){
 		if(!data.name || data.name.length>settings.CHAT_NAME_MAX_LENGTH){
 			//文字数超過
