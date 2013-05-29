@@ -61,9 +61,9 @@ var Chat;
         UserListView.prototype.initTable = function (table) {
             var thead = table.createTHead();
             [
-                "名前", 
-                "IPアドレス", 
-                "UA"
+                "Name", 
+                "IP Address", 
+                "User Agent"
             ].forEach(function (x) {
                 var th = document.createElement("th");
                 th.textContent = x;

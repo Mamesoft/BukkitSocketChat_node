@@ -16,22 +16,22 @@ var Chat;
                 this.container.appendChild(p);
                 p.appendChild(this.makeinput(function (input) {
                     input.type = "button";
-                    input.value = "設定";
+                    input.value = "Option";
                     input.dataset.open = "setting";
                 }));
                 p.appendChild(this.makeinput(function (input) {
                     input.type = "button";
-                    input.value = "入室者";
+                    input.value = "Member";
                     input.dataset.open = "userlist";
                 }));
                 p.appendChild(this.makeinput(function (input) {
                     input.type = "button";
-                    input.value = "その他";
+                    input.value = "Others";
                     input.dataset.open = "others";
                 }));
                 p.appendChild(this.makeinput(function (input) {
                     input.type = "button";
-                    input.value = "戻る";
+                    input.value = "Back";
                     input.dataset.open = "";
                 }));
                 this.container.addEventListener("click", function (e) {

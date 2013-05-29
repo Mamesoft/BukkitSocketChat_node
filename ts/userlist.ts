@@ -56,7 +56,7 @@ module Chat{
 		initTable(table:HTMLTableElement):void{
 			//thead
 			var thead=table.createTHead();
-			["名前","IPアドレス","UA"].forEach((x:string)=>{
+			["Name","IP Address","User Agent"].forEach((x:string)=>{
 				var th=document.createElement("th");
 				th.textContent=x;
 				thead.appendChild(th);
