@@ -188,7 +188,7 @@ module Chat{
 	export class ChatSettingView{
 		private container:HTMLFormElement;
 		//餃子セッティング一覧
-		private gyozaSettings:string[]=["餃子無展開","餃子オンマウス","餃子常時"];
+		private gyozaSettings:string[]=["画像無展開","画像オンマウス","画像常時"];
 		//チャネルセッティング一覧
 		private channelSettings:string[]=["欄#","窓#"];
 		constructor(private userData:ChatUserData,private view:ChatView){
@@ -754,9 +754,9 @@ module Chat{
 					ext: true,
 				},
 				text: {
-					normal: "[Gyazo]",
-					opening: "[Gyoza…]",
-					error: "[Gyoza?]",
+					normal: "[Image]",
+					opening: "[Loading…]",
+					error: "[Img Load Error!]",
 				}
 			},
 			{
@@ -767,9 +767,9 @@ module Chat{
 					ext:true,
 				},
 				text: {
-					normal: "[Myazo]",
-					opening: "[Myoza…]",
-					error:"[Myoza?]"
+					normal: "[Image]",
+					opening: "[Loading…]",
+					error: "[Img Load Error!]",
 				}
 			},
 			{
@@ -780,9 +780,9 @@ module Chat{
 					ext: false,
 				},
 				text: {
-					normal: "[81g]",
-					opening: "[81kg…]",
-					error:"[81kg?]",
+					normal: "[Image]",
+					opening: "[Loading…]",
+					error: "[Img Load Error!]",
 				}
 			}
 		];
@@ -1558,7 +1558,7 @@ module Chat{
 				//HottoMottoButton
 				p.appendChild(this.makeinput((input)=>{
 					input.type="submit";
-					input.value="HottoMotto";
+					input.value="もっと読む";
 				}));
 
 				this.container.addEventListener("submit",(e:Event)=>{
@@ -2315,7 +2315,7 @@ module Chat{
 					}
 				}
 				//餃子状態を表示してあげる
-				["餃子無展開","餃子オンマウス","餃子常時"].forEach((x:string,i:number)=>{
+				["画像無展開","画像オンマウス","画像常時"].forEach((x:string,i:number)=>{
 					if(this.userData.gyoza===i){
 						this.put("*"+i,{color:"#00ffff"});
 					}else{
@@ -2389,7 +2389,7 @@ module Chat{
 "out",
 "	 quit the chatroom",
 "motto [until] [--gmt] [--utc]",
-"	 HottoMotto",
+"	 Load More",
 "	   until(if exists): ex) 2012-01-01, 2013-01-01T00:00",
 "volume [number]",
 "	 show/set volume",

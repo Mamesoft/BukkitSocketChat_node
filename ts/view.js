@@ -134,9 +134,9 @@ var Chat;
             this.userData = userData;
             this.view = view;
             this.gyozaSettings = [
-                "餃子無展開", 
-                "餃子オンマウス", 
-                "餃子常時"
+                "画像無展開", 
+                "画像オンマウス", 
+                "画像常時"
             ];
             this.channelSettings = [
                 "欄#", 
@@ -641,9 +641,9 @@ var Chat;
                         ext: true
                     },
                     text: {
-                        normal: "[Gyazo]",
-                        opening: "[Gyoza…]",
-                        error: "[Gyoza?]"
+                        normal: "[Image]",
+                        opening: "[Loading…]",
+                        error: "[Img Load Error!]"
                     }
                 }, 
                 {
@@ -654,9 +654,9 @@ var Chat;
                         ext: true
                     },
                     text: {
-                        normal: "[Myazo]",
-                        opening: "[Myoza…]",
-                        error: "[Myoza?]"
+                        normal: "[Image]",
+                        opening: "[Loading…]",
+                        error: "[Img Load Error!]"
                     }
                 }, 
                 {
@@ -667,9 +667,9 @@ var Chat;
                         ext: false
                     },
                     text: {
-                        normal: "[81g]",
-                        opening: "[81kg…]",
-                        error: "[81kg?]"
+                        normal: "[Image]",
+                        opening: "[Loading…]",
+                        error: "[Img Load Error!]"
                     }
                 }
             ];
@@ -1354,7 +1354,7 @@ function validateHashtag(channel) {
                 this.container.appendChild(p);
                 p.appendChild(this.makeinput(function (input) {
                     input.type = "submit";
-                    input.value = "HottoMotto";
+                    input.value = "もっと読む";
                 }));
                 this.container.addEventListener("submit", function (e) {
                     e.preventDefault();
@@ -2072,9 +2072,9 @@ while(node = tw.previousNode()) {
                     }
                 }
                 [
-                    "餃子無展開", 
-                    "餃子オンマウス", 
-                    "餃子常時"
+                    "画像無展開", 
+                    "画像オンマウス", 
+                    "画像常時"
                 ].forEach(function (x, i) {
                     if(_this.userData.gyoza === i) {
                         _this.put("*" + i, {
@@ -2167,7 +2167,7 @@ while(node = tw.previousNode()) {
                     "out", 
                     "	 quit the chatroom", 
                     "motto [until] [--gmt] [--utc]", 
-                    "	 HottoMotto", 
+                    "	 Load More", 
                     "	   until(if exists): ex) 2012-01-01, 2013-01-01T00:00", 
                     "volume [number]", 
                     "	 show/set volume", 
