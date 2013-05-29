@@ -492,6 +492,7 @@ User.prototype.inout=function(data){
 	this.rom = !this.rom;
 	if(data.name == "ゲームサーバー"){
 		if(data.pass != pass){
+			this.rom=true;
 			return;
 		}
 	}
