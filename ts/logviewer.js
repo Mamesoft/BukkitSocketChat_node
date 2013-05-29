@@ -144,7 +144,7 @@ var Chat;
         FindQueryForm.prototype.makeRangePart = function () {
             var fs = document.createElement("fieldset");
             fs.appendChild(Chat.makeEl("legend", function (el) {
-                el.textContent = "取得範囲";
+                el.textContent = "Range";
             }));
             fs.appendChild(Chat.makeEl("p", function (p) {
                 p.appendChild(Chat.makeEl("label", function (label) {
@@ -154,7 +154,7 @@ var Chat;
                         input.name = "range";
                         input.value = "time";
                     }));
-                    label.appendChild(document.createTextNode("発言時間で検索:"));
+                    label.appendChild(document.createTextNode("Search by time:"));
                 }));
                 var now = (new Date()).toISOString();
                 now = now.replace(/(?:Z|[-+]\d\d(?::?\d\d)?)$/, "");
@@ -162,7 +162,7 @@ var Chat;
                     now = now.replace(/[\.,]\d+$/, "");
                 }
                 p.appendChild(Chat.makeEl("label", function (label) {
-                    label.textContent = "始点時間";
+                    label.textContent = "Start time";
                     label.appendChild(Chat.makeEl("input", function (el) {
                         var input = el;
                         input.type = "datetime-local";
@@ -172,7 +172,7 @@ var Chat;
                     }));
                 }));
                 p.appendChild(Chat.makeEl("label", function (label) {
-                    label.textContent = " 終点時間";
+                    label.textContent = " End time";
                     label.appendChild(Chat.makeEl("input", function (el) {
                         var input = el;
                         input.type = "datetime-local";
@@ -191,7 +191,7 @@ var Chat;
                         input.value = "new";
                         input.checked = true;
                     }));
-                    label.appendChild(document.createTextNode("新しいほうから検索"));
+                    label.appendChild(document.createTextNode("Search Newest"));
                 }));
             }));
             return fs;
@@ -199,26 +199,26 @@ var Chat;
         FindQueryForm.prototype.makeQueryPart = function () {
             return Chat.makeEl("fieldset", function (fs) {
                 fs.appendChild(Chat.makeEl("legend", function (legend) {
-                    legend.textContent = "検索条件";
+                    legend.textContent = "Filtering";
                 }));
                 fs.appendChild(Chat.makeEl("p", function (p) {
                     p.appendChild(makeInput(function (input) {
                         input.type = "checkbox";
                         input.name = "use_name_or_ip";
                     }));
-                    p.appendChild(makeInputAndLabel("名前", true, function (input) {
+                    p.appendChild(makeInputAndLabel("Name", true, function (input) {
                         input.type = "radio";
                         input.name = "name_or_ip";
                         input.value = "name";
                         input.checked = true;
                     }));
                     p.appendChild(document.createTextNode("or"));
-                    p.appendChild(makeInputAndLabel("IPアドレス", true, function (input) {
+                    p.appendChild(makeInputAndLabel("IP Address", true, function (input) {
                         input.type = "radio";
                         input.name = "name_or_ip";
                         input.value = "ip";
                     }));
-                    p.appendChild(document.createTextNode("で検索:"));
+                    p.appendChild(document.createTextNode("at Search:"));
                     p.appendChild(makeInput(function (input) {
                         input.type = "text";
                         input.name = "name_or_ip_value";
@@ -226,7 +226,7 @@ var Chat;
                     }));
                 }));
                 fs.appendChild(Chat.makeEl("p", function (p) {
-                    p.appendChild(makeInputAndLabel("コメントで検索:", true, function (input) {
+                    p.appendChild(makeInputAndLabel("Search by Comments:", true, function (input) {
                         input.type = "checkbox";
                         input.name = "use_comment";
                     }));
@@ -237,7 +237,7 @@ var Chat;
                     }));
                 }));
                 fs.appendChild(Chat.makeEl("p", function (p) {
-                    p.appendChild(makeInputAndLabel("ハッシュタグで検索:", true, function (input) {
+                    p.appendChild(makeInputAndLabel("Search by Tags:", true, function (input) {
                         input.type = "checkbox";
                         input.name = "use_channel";
                     }));
@@ -266,14 +266,14 @@ var Chat;
             var _this = this;
             return Chat.makeEl("fieldset", function (fs) {
                 fs.appendChild(Chat.makeEl("legend", function (legend) {
-                    legend.textContent = "検索";
+                    legend.textContent = "Search";
                 }));
                 fs.appendChild(Chat.makeEl("p", function (p) {
                     p.appendChild(makeInput(function (input) {
                         input.type = "submit";
-                        input.value = "検索";
+                        input.value = "Search";
                     }));
-                    p.appendChild(document.createTextNode(": 1ページに"));
+                    p.appendChild(document.createTextNode(": One Page in "));
                     p.appendChild(makeInput(function (input) {
                         input.type = "number";
                         input.min = "100";
@@ -282,12 +282,12 @@ var Chat;
                         input.name = "page_number";
                         input.value = "100";
                     }));
-                    p.appendChild(document.createTextNode("発言表示"));
+                    p.appendChild(document.createTextNode(" comments"));
                 }));
                 fs.appendChild(Chat.makeEl("p", function (p) {
                     p.appendChild(makeInput(function (input) {
                         input.type = "button";
-                        input.value = "前のページ";
+                        input.value = "Prev Page";
                         input.addEventListener("click", function (e) {
                             _this.movePage(-1);
                         }, false);
@@ -297,12 +297,12 @@ var Chat;
                         output.name = "thispage";
                         output.value = "";
                         _this.event.on("query", function (q) {
-                            output.value = q.page + "ページ目";
+                            output.value = q.page + " Page";
                         });
                     }));
                     p.appendChild(makeInput(function (input) {
                         input.type = "button";
-                        input.value = "次のページ";
+                        input.value = "Next Page";
                         input.addEventListener("click", function (e) {
                             _this.movePage(1);
                         }, false);

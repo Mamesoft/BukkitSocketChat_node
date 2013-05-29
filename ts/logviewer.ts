@@ -141,7 +141,7 @@ module Chat{
 		makeRangePart():HTMLFieldSetElement{
 			var fs=<HTMLFieldSetElement>document.createElement("fieldset");
 			fs.appendChild(makeEl("legend",(el)=>{
-				el.textContent="取得範囲";
+				el.textContent="Range";
 			}));
 			fs.appendChild(makeEl("p",(p)=>{
 				p.appendChild(makeEl("label",(label)=>{
@@ -151,7 +151,7 @@ module Chat{
 						input.name="range";
 						input.value="time";
 					}));
-					label.appendChild(document.createTextNode("発言時間で検索:"));
+					label.appendChild(document.createTextNode("Search by time:"));
 				}));
 				var now=(new Date).toISOString();
 				now=now.replace(/(?:Z|[-+]\d\d(?::?\d\d)?)$/,"");
@@ -160,7 +160,7 @@ module Chat{
 					now=now.replace(/[\.,]\d+$/,"");
 				}
 				p.appendChild(makeEl("label",(label)=>{
-					label.textContent="始点時間";
+					label.textContent="Start time";
 					label.appendChild(makeEl("input",(el)=>{
 						var input=<HTMLInputElement>el;
 						input.type="datetime-local";
@@ -170,7 +170,7 @@ module Chat{
 					}));
 				}));
 				p.appendChild(makeEl("label",(label)=>{
-					label.textContent=" 終点時間";
+					label.textContent=" End time";
 					label.appendChild(makeEl("input",(el)=>{
 						var input=<HTMLInputElement>el;
 						input.type="datetime-local";
@@ -189,7 +189,7 @@ module Chat{
 						input.value="new";
 						input.checked=true;
 					}));
-					label.appendChild(document.createTextNode("新しいほうから検索"));
+					label.appendChild(document.createTextNode("Search Newest"));
 				}));
 			}));
 			return fs;
@@ -197,26 +197,26 @@ module Chat{
 		makeQueryPart():HTMLFieldSetElement{
 			return <HTMLFieldSetElement>makeEl("fieldset",(fs)=>{
 				fs.appendChild(makeEl("legend",(legend)=>{
-					legend.textContent="検索条件";
+					legend.textContent="Filtering";
 				}));
 				fs.appendChild(makeEl("p",(p)=>{
 					p.appendChild(makeInput((input)=>{
 						input.type="checkbox";
 						input.name="use_name_or_ip";
 					}));
-					p.appendChild(makeInputAndLabel("名前",true,(input)=>{
+					p.appendChild(makeInputAndLabel("Name",true,(input)=>{
 						input.type="radio";
 						input.name="name_or_ip";
 						input.value="name";
 						input.checked=true;
 					}));
 					p.appendChild(document.createTextNode("or"));
-					p.appendChild(makeInputAndLabel("IPアドレス",true,(input)=>{
+					p.appendChild(makeInputAndLabel("IP Address",true,(input)=>{
 						input.type="radio";
 						input.name="name_or_ip";
 						input.value="ip";
 					}));
-					p.appendChild(document.createTextNode("で検索:"));
+					p.appendChild(document.createTextNode("at Search:"));
 					p.appendChild(makeInput((input)=>{
 						input.type="text";
 						input.name="name_or_ip_value";
@@ -225,7 +225,7 @@ module Chat{
 
 				}));
 				fs.appendChild(makeEl("p",(p)=>{
-					p.appendChild(makeInputAndLabel("コメントで検索:",true,(input)=>{
+					p.appendChild(makeInputAndLabel("Search by Comments:",true,(input)=>{
 						input.type="checkbox";
 						input.name="use_comment";
 					}));
@@ -236,7 +236,7 @@ module Chat{
 					}));
 				}));
 				fs.appendChild(makeEl("p",(p)=>{
-					p.appendChild(makeInputAndLabel("ハッシュタグで検索:",true,(input)=>{
+					p.appendChild(makeInputAndLabel("Search by Tags:",true,(input)=>{
 						input.type="checkbox";
 						input.name="use_channel";
 					}));
@@ -263,14 +263,14 @@ module Chat{
 		makeOperatePart():HTMLFieldSetElement{
 			return <HTMLFieldSetElement>makeEl("fieldset",(fs)=>{
 				fs.appendChild(makeEl("legend",(legend)=>{
-					legend.textContent="検索";
+					legend.textContent="Search";
 				}));
 				fs.appendChild(makeEl("p",(p)=>{
 					p.appendChild(makeInput((input)=>{
 						input.type="submit";
-						input.value="検索";
+						input.value="Search";
 					}));
-					p.appendChild(document.createTextNode(": 1ページに"));
+					p.appendChild(document.createTextNode(": One Page in "));
 					p.appendChild(makeInput((input)=>{
 						input.type="number";
 						input.min="100";
@@ -279,12 +279,12 @@ module Chat{
 						input.name="page_number";
 						input.value="100";
 					}));
-					p.appendChild(document.createTextNode("発言表示"));
+					p.appendChild(document.createTextNode(" comments"));
 				}));
 				fs.appendChild(makeEl("p",(p)=>{
 					p.appendChild(makeInput((input)=>{
 						input.type="button";
-						input.value="前のページ";
+						input.value="Prev Page";
 						input.addEventListener("click",(e:Event)=>{
 							this.movePage(-1);
 						},false);
@@ -295,12 +295,12 @@ module Chat{
 						output.value="";
 						//イベント
 						this.event.on("query",(q:FindQuery)=>{
-							output.value=q.page+"ページ目";
+							output.value=q.page+" Page";
 						});
 					}));
 					p.appendChild(makeInput((input)=>{
 						input.type="button";
-						input.value="次のページ";
+						input.value="Next Page";
 						input.addEventListener("click",(e:Event)=>{
 							this.movePage(1);
 						},false);
