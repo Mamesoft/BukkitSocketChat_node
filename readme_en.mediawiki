@@ -1,0 +1,50 @@
+=BukkitSocketChat=
+;WebSite:http://mamesoft.jp/bukkit/socketchat
+;Version:1.10
+
+ This document uses some automatic translation.
+ Please see Japanese document, if you can read Japanese.
+
+:This Plugin is be able to join the chat in game from the web.
+:This Plugin is using Socketchat such us Uhyo have been developed in the chat.
+:Require:Node.js, MongoDB and Socket.io etc.
+
+
+==How to use==
+#Launch the SocketChat(Described in detail later)
+#Was placed in a plugin folder of the CraftBukkit BukkitSocketChat.jar, it will exit to start once the Bukkit server
+#Open the config.yml of BukkitSocketChat folder that was generated plugin folder, and then set a password for the socket connection for the URL of the SocketChat.(Please be sure to change the password for security) 
+
+===SocketChat How to use===
+#Install MongoDB(http://www.mongodb.org/ ) and Node.js(http://nodejs.org/ )
+#Install in accordance with the list of required libraries of package.json by npm
+#Set Password for socket connection, and the connection ID of MongoDB, the port number to open the settings file
+#Start the SocketChat Run in the terminal node ch.js
+
+==Option==
+Config.yml will be generated in the directory of the BukkitSocketChat Plugin When you start.
+
+==Source==
+;Plugin
+:https://github.com/Mamesoft/BukkitSocketChat_Java
+;Chat
+:https://github.com/Mamesoft/BukkitSocketChat_node
+
+
+==Copyright notice==
+===Auther===
+Mamesoft(info@mamesoft.jp )
+
+===Use library===
+*https://github.com/Gottox/socket.io-java-client
+*https://github.com/TooTallNate/Java-WebSocket
+*https://github.com/douglascrockford/JSON-java
+
+===SocketChat===
+Chat part of this plug-in is a fork of the system under
+*https://github.com/uhyo/socketchat
+
+
+==License==
+I apply the Mamesoft Open License Version 1.0 in this software.
+Please read license_en.txt
