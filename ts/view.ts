@@ -188,9 +188,9 @@ module Chat{
 	export class ChatSettingView{
 		private container:HTMLFormElement;
 		//餃子セッティング一覧
-		private gyozaSettings:string[]=["餃子無展開","餃子オンマウス","餃子常時"];
+		private gyozaSettings:string[]=["Img is Links","Img is onMouse to Thumbnail","Img is Thumbnail"];
 		//チャネルセッティング一覧
-		private channelSettings:string[]=["欄#","窓#"];
+		private channelSettings:string[]=["# is ThisWindow","# is NewWindow"];
 		constructor(private userData:ChatUserData,private view:ChatView){
 			this.container=<HTMLFormElement>document.createElement("form");
 			this.container.classList.add("infobar");
@@ -754,9 +754,9 @@ module Chat{
 					ext: true,
 				},
 				text: {
-					normal: "[Gyazo]",
-					opening: "[Gyoza…]",
-					error: "[Gyoza?]",
+					normal: "[Img]",
+					opening: "[Loading…]",
+					error: "[Error]",
 				}
 			},
 			{
@@ -767,9 +767,9 @@ module Chat{
 					ext:true,
 				},
 				text: {
-					normal: "[Myazo]",
-					opening: "[Myoza…]",
-					error:"[Myoza?]"
+					normal: "[Img]",
+					opening: "[Loading…]",
+					error: "[Error]",
 				}
 			},
 			{
@@ -780,9 +780,9 @@ module Chat{
 					ext: false,
 				},
 				text: {
-					normal: "[81g]",
-					opening: "[81kg…]",
-					error:"[81kg?]",
+					normal: "[Img]",
+					opening: "[Loading…]",
+					error: "[Error]",
 				}
 			}
 		];
@@ -1214,7 +1214,7 @@ module Chat{
 			var dataset=this.userNumber.dataset;
 			dataset.actives=String(parseInt(dataset.actives)+actives);
 			dataset.roms=String(parseInt(dataset.roms)+roms);
-			this.userNumber.textContent="入室"+dataset.actives+(dataset.roms!=="0"? " (ROM"+dataset.roms+")":"");
+			this.userNumber.textContent="Active: "+dataset.actives+(dataset.roms!=="0"? " (ROM"+dataset.roms+")":"");
 		}
 		newuser(user:UserObj):void{
 			if(user.rom){
@@ -1379,7 +1379,7 @@ module Chat{
 					input.size=20;
 					input.maxLength=25;
 					input.required=true;
-					input.placeholder="名前";
+					input.placeholder="Name";
 					//最初
 					input.value = this.userData.name || "";
 				}));
@@ -1387,12 +1387,12 @@ module Chat{
 				p.appendChild(this.makeinput(input=>{
 					input.name="inoutbutton";
 					input.type="submit";
-					input.value="入室";
+					input.value="LogIn";
 				}));
 				//入退室時にフォームがかわる
 				this.receiver.on("userinfo",(data:{name:string;rom:bool;})=>{
 					(<HTMLInputElement>this.container.elements["uname"]).disabled = !data.rom;
-					(<HTMLInputElement>this.container.elements["inoutbutton"]).value = data.rom ? "入室" : "退室";
+					(<HTMLInputElement>this.container.elements["inoutbutton"]).value = data.rom ? "LogIn" : "LogOut";
 				});
 				this.container.addEventListener("submit",(e:Event)=>{
 					e.preventDefault();
@@ -1451,7 +1451,7 @@ module Chat{
 						if(!input.value || validateHashtag(input.value)){
 							input.setCustomValidity("");
 						}else{
-							input.setCustomValidity("不正なチャネル名です");
+							input.setCustomValidity("Channel is Bad!");
 						}
 					},false);
 				}));
@@ -1459,7 +1459,7 @@ module Chat{
 				p.appendChild(this.makeinput(input=>{
 					input.name="commentbutton";
 					input.type="submit";
-					input.value="発言";
+					input.value="Submit";
 					input.disabled=us.rom;
 				}));
 				this.receiver.on("userinfo",(data:{name:string;rom:bool;})=>{
@@ -1477,7 +1477,7 @@ module Chat{
 					p.appendChild(this.makeinput(input=>{
 						input.name="canselbutton";
 						input.type="button";
-						input.value="キャンセル";
+						input.value="Cancel";
 						input.addEventListener("click",(e:Event)=>{
 							this.event.emit("cancel");
 						},false);
@@ -1558,7 +1558,7 @@ module Chat{
 				//HottoMottoButton
 				p.appendChild(this.makeinput((input)=>{
 					input.type="submit";
-					input.value="HottoMotto";
+					input.value="More Loading";
 				}));
 
 				this.container.addEventListener("submit",(e:Event)=>{
@@ -2315,7 +2315,7 @@ module Chat{
 					}
 				}
 				//餃子状態を表示してあげる
-				["餃子無展開","餃子オンマウス","餃子常時"].forEach((x:string,i:number)=>{
+				["Img is Links","Img is onMouse to Thumbnail","Img is Thumbnail"].forEach((x:string,i:number)=>{
 					if(this.userData.gyoza===i){
 						this.put("*"+i,{color:"#00ffff"});
 					}else{

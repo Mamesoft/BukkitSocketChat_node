@@ -120,10 +120,10 @@ db.open(function(err,_db){
 			log=collection;
 			db.collection("channel",function(err,collection){
 				chcoll=collection;
-				var syslog={"name" : "■起動通知",
+				var syslog={"name" : "[Information]",
 					"time":new Date(),
 				"ip":"127.0.0.1",
-				"comment":"「チャットサーバー」さんが起動",
+				"comment":"ChatServer is Started.",
 				"syslog":true
 				};
 				makelog({"type":"system"},syslog);
@@ -490,7 +490,7 @@ User.prototype.says=function(data){
 };
 User.prototype.inout=function(data){
 	this.rom = !this.rom;
-	if(data.name == "ゲームサーバー"){
+	if(data.name == "ゲームサーバー" || data.name == "Game Server"){
 		if(data.pass != pass){
 			this.rom=true;
 			return;
@@ -505,10 +505,10 @@ User.prototype.inout=function(data){
 		this.name=data.name;
 	}
 	//シスログ
-	var syslog={"name" : (this.rom?"■退室通知":"■入室通知"),
+	var syslog={"name" : "[Information]",
 		    "time":new Date(),
 		    "ip":this.ip,
-		    "comment":"「"+this.name+"」さんが"+(this.rom?"退室":"入室"),
+		    "comment":this.name+"is "+(this.rom?"LogOut":"LogIn"),
 		    "syslog":true
 	};
 	makelog(this,syslog);
@@ -574,10 +574,10 @@ function findlog(query,callback){
 //いなくなった！❾
 User.prototype.discon=function(){
 	if(!this.rom){
-		var syslog={"name" : "■失踪通知",
+		var syslog={"name" : "[Information]",
 			    "time":new Date(),
 			    "ip":this.ip,
-			    "comment":"「"+this.name+"」さんいない",
+			    "comment":this.name+" is Forget",
 			    "syslog":true
 		};
 		makelog(this,syslog);

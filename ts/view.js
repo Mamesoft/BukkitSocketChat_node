@@ -134,13 +134,13 @@ var Chat;
             this.userData = userData;
             this.view = view;
             this.gyozaSettings = [
-                "餃子無展開", 
-                "餃子オンマウス", 
-                "餃子常時"
+                "Img is Links", 
+                "Img is onMouse to Thumbnail", 
+                "Img is Thumbnail"
             ];
             this.channelSettings = [
-                "欄#", 
-                "窓#"
+                "# is ThisWindow", 
+                "# is NewWindow"
             ];
             this.container = document.createElement("form");
             this.container.classList.add("infobar");
@@ -641,9 +641,9 @@ var Chat;
                         ext: true
                     },
                     text: {
-                        normal: "[Gyazo]",
-                        opening: "[Gyoza…]",
-                        error: "[Gyoza?]"
+                        normal: "[Img]",
+                        opening: "[Loading…]",
+                        error: "[Error]"
                     }
                 }, 
                 {
@@ -654,9 +654,9 @@ var Chat;
                         ext: true
                     },
                     text: {
-                        normal: "[Myazo]",
-                        opening: "[Myoza…]",
-                        error: "[Myoza?]"
+                        normal: "[Img]",
+                        opening: "[Loading…]",
+                        error: "[Error]"
                     }
                 }, 
                 {
@@ -667,9 +667,9 @@ var Chat;
                         ext: false
                     },
                     text: {
-                        normal: "[81g]",
-                        opening: "[81kg…]",
-                        error: "[81kg?]"
+                        normal: "[Img]",
+                        opening: "[Loading…]",
+                        error: "[Error]"
                     }
                 }
             ];
@@ -1025,7 +1025,7 @@ var Chat;
             var dataset = this.userNumber.dataset;
             dataset.actives = String(parseInt(dataset.actives) + actives);
             dataset.roms = String(parseInt(dataset.roms) + roms);
-            this.userNumber.textContent = "入室" + dataset.actives + (dataset.roms !== "0" ? " (ROM" + dataset.roms + ")" : "");
+            this.userNumber.textContent = "Active: " + dataset.actives + (dataset.roms !== "0" ? " (ROM" + dataset.roms + ")" : "");
         };
         ChatUserView.prototype.newuser = function (user) {
             if(user.rom) {
@@ -1177,17 +1177,17 @@ var Chat;
                     input.size = 20;
                     input.maxLength = 25;
                     input.required = true;
-                    input.placeholder = "名前";
+                    input.placeholder = "Name";
                     input.value = _this.userData.name || "";
                 }));
                 p.appendChild(this.makeinput(function (input) {
                     input.name = "inoutbutton";
                     input.type = "submit";
-                    input.value = "入室";
+                    input.value = "LogIn";
                 }));
                 this.receiver.on("userinfo", function (data) {
                     (_this.container.elements["uname"]).disabled = !data.rom;
-                    (_this.container.elements["inoutbutton"]).value = data.rom ? "入室" : "退室";
+                    (_this.container.elements["inoutbutton"]).value = data.rom ? "LogIn" : "LogOut";
                 });
                 this.container.addEventListener("submit", function (e) {
                     e.preventDefault();
@@ -1244,14 +1244,14 @@ var Chat;
                         if(!input.value || validateHashtag(input.value)) {
                             input.setCustomValidity("");
                         } else {
-                            input.setCustomValidity("不正なチャネル名です");
+                            input.setCustomValidity("Channel is Bad!");
                         }
                     }, false);
                 }));
                 p.appendChild(this.makeinput(function (input) {
                     input.name = "commentbutton";
                     input.type = "submit";
-                    input.value = "発言";
+                    input.value = "Submit";
                     input.disabled = us.rom;
                 }));
                 this.receiver.on("userinfo", function (data) {
@@ -1272,7 +1272,7 @@ var Chat;
                     p.appendChild(this.makeinput(function (input) {
                         input.name = "canselbutton";
                         input.type = "button";
-                        input.value = "キャンセル";
+                        input.value = "Cancel";
                         input.addEventListener("click", function (e) {
                             _this.event.emit("cancel");
                         }, false);
@@ -1354,7 +1354,7 @@ function validateHashtag(channel) {
                 this.container.appendChild(p);
                 p.appendChild(this.makeinput(function (input) {
                     input.type = "submit";
-                    input.value = "HottoMotto";
+                    input.value = "More Loading";
                 }));
                 this.container.addEventListener("submit", function (e) {
                     e.preventDefault();
@@ -2072,9 +2072,9 @@ while(node = tw.previousNode()) {
                     }
                 }
                 [
-                    "餃子無展開", 
-                    "餃子オンマウス", 
-                    "餃子常時"
+                    "Img is Links", 
+                    "Img is onMouse to Thumbnail", 
+                    "Img is Thumbnail"
                 ].forEach(function (x, i) {
                     if(_this.userData.gyoza === i) {
                         _this.put("*" + i, {
