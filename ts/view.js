@@ -2207,7 +2207,7 @@ while(node = tw.previousNode()) {
                 }
                 var dest = args[0].value;
                 if(dest === "wiki") {
-                    dest = "http://showigiki.81.la/shogiwiki/";
+                    dest = "http://bukkitwiki.m37.info/";
                 } else {
                     var result = dest.match(/^#(\S+)$/);
                     if(result) {

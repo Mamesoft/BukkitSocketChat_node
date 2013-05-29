@@ -2422,7 +2422,7 @@ module Chat{
 				var dest=args[0].value;
 				//alias
 				if(dest==="wiki"){
-					dest="http://showigiki.81.la/shogiwiki/";
+					dest="http://bukkitwiki.m37.info/";
 				}else{
 					//チャネル
 					var result=dest.match(/^#(\S+)$/);
