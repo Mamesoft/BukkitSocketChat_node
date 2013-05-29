@@ -490,7 +490,7 @@ User.prototype.says=function(data){
 };
 User.prototype.inout=function(data){
 	this.rom = !this.rom;
-	if(data.name == "ゲームサーバー"){
+	if(data.name == "ゲームサーバー" || data.name == "Game Server"){
 		if(data.pass != pass){
 			this.rom=true;
 			return;
