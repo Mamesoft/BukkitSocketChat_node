@@ -145,8 +145,8 @@ module Chat{
 					name:"log",
 				},
 				{
-					url:"/apiclient",
-					name:"API",
+					url:"/smp",
+					name:"SmartPhone",
 				},
 				{
 					url:"/com",
