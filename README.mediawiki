@@ -1,6 +1,6 @@
 =BukkitSocketChat=
 ;配布サイト:http://mamesoft.jp/bukkit/socketchat
-;バージョン:1.10
+;バージョン:1.11
 
 :このプラグインはWebからゲーム内のチャットに参加できるようにし、Webで過去のチャットログを表示できるようにするプラグインです。
 :チャット部分にはうひょ氏などが開発されたSocketChatを使用しています。
