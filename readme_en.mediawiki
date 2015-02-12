@@ -47,4 +47,4 @@ Chat part of this plug-in is a fork of the system under
 
 ==License==
 I apply the Mamesoft Open License Version 1.0 in this software.
-Please read license_en.txt
+Please read license.txt
