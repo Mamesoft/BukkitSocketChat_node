@@ -1,29 +1,27 @@
 Mamesoft Open License
+
 Version 1.0
 
-1.このソフトウェアは以下の条件内で誰でも改造や再配布などの二次利用を許可する。
-	a:このソフトウェアを利用したソフトウェアは、著作権表示をソフトウェアのすべての複製またはソフトウェア利用者が視認できる重要な場所に記載すること。
-	b:このソフトウェアを利用したソフトウェアは、このソフトウェアに掲載されている著作権表示を全て保持しなければならない。
-	c:このソフトウェアを利用したソフトウェアは、ソフトウェアの重要な場所及び配布ページにこのソフトウェアの配布ページへのリンクを設置すること。
-	d:このソフトウェアを利用したソフトウェアは、このライセンスを一切変更せずに適用のうえで配布し、全てのソースコードを無償で公開すること。
-	e:このソフトウェアを利用したソフトウェアは、再配布や二次利用に関わる他のライセンスを追加することはできない。
-	f:このソフトウェアを利用したソフトウェアは、この条文を表示またはこの条文(http://mamesoft.jp/license/mol_1.0)へリンクすること。
-	g:このソフトウェアを利用したソフトウェアは、全ての機能を無償で提供すること。
+1. Anyone can make secondary use of this software, such as altering and redistributing, within range of following conditions.
+	a. Software using this software is required to place copyright notice on every copy of the software or an important part which users can see and recognize.
+	b. Software using this software is required to keep all copyright notice mentioned by this software.
+	c. It is required to place a link on an important part of the software and a distribution page to distribute software using this software.
+	d. License for software using this software must be the same as this software; any change for the license is not allowed. It is also necessary to distribute the software free of charge.
+	e. Any additional license regarding secondary use of software using this software is not allowed.
+	f. Software using this software is required to show this text or place a link to this text(http://mamesoft.github.io/license/mol_1.0).
+	g. All parts of software using this software have to be free of charge.
 
-2.作者または著作権者は、ソフトウェアに関して一切の責任を負わない。
+2. Author and copyright holder of this software assume no responsibility for this software.
 
-3.このソフトウェアの作者または著作権者及び関係者に、損害を与えないこと。万が一損害を与えた場合、作者または著作権者及び関係者は損害賠償を請求できる。
+3. Do not hurt author or copyright holder of this software. If you do so, author or copyright holder will never hesitate to take you to court.
 
-4.このライセンスは一切改変しない条件の下、いかなるソフトウェアにも利用できる。
+4. This license can be applied to any software as long as it is not altered.
 
-5.ソフトウェア利用者はこのライセンスに同意する必要は無い。ただしこのソフトウェアを改造や再配布など二次利用する場合はこのライセンスに必ず同意すること。
+5. Users of the software using this software are not required to agree this license. Note that whoever make secondary use of this software need to agree this license.
+
+Enactment: January 28, 2013
 
 
-2013年1月23日 制定
-
-テキスト版 http://mamesoft.jp/mol_1.0.txt
-Web版 http://mamesoft.jp/mol_1.0
-プレーンHTML版 http://mamesoft.jp/mol_1.0_plain
-Mamesoft Open Licenseトップページ http://mamesoft.jp/mol
-
-Copyrights © Mamesoft All Rights Reserved.
+English Version  : http://mamesoft.github.io/license/mol_1.0
+Japanese Version : http://mamesoft.github.io/license/mol_1.0_ja
+Text Version     : http://mamesoft.github.io/license/mol_1.0.txt
