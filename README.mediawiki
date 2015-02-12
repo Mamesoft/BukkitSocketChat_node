@@ -44,5 +44,5 @@ Mamesoft(info@mamesoft.jp )
 
 
 ==ライセンス==
-このソフトウェアにはMamesoft Open License Version 1.0(http://mamesoft.jp/license/mol_1.0 )を適用します。
+このソフトウェアにはMamesoft Open License Version 1.0(http://mamesoft.github.io/license/mol_1.0 )を適用します。
 なお、MOL1.0ライセンスは本リポジトリにも内蔵しております。
